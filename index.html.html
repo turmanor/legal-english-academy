@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Legal English Academy</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Inter", "PingFang SC", sans-serif;
+    }
+
+    body {
+      background: #0a0a0a;
+      color: white;
+      line-height: 1.7;
+      padding: 30px;
+    }
+
+    .container {
+      max-width: 1300px;
+      margin: auto;
+    }
+
+    .hero {
+      background: #121212;
+      border: 1px solid #222;
+      border-radius: 28px;
+      padding: 40px;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: 52px;
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      color: #999;
+      font-size: 18px;
+      max-width: 800px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .stat-card {
+      background: #1a1a1a;
+      border: 1px solid #2d2d2d;
+      border-radius: 20px;
+      padding: 24px;
+    }
+
+    .stat-number {
+      font-size: 38px;
+      font-weight: bold;
+    }
+
+    .stat-label {
+      color: #999;
+      margin-top: 8px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 24px;
+    }
+
+    .card {
+      background: #121212;
+      border: 1px solid #222;
+      border-radius: 28px;
+      padding: 28px;
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      font-size: 32px;
+      margin-bottom: 22px;
+    }
+
+    .task {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: #1a1a1a;
+      border-radius: 18px;
+      padding: 16px;
+      margin-bottom: 14px;
+      border: 1px solid #2c2c2c;
+    }
+
+    .task-number {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #2f2f2f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+    }
+
+    .term-card {
+      background: #1a1a1a;
+      border-radius: 24px;
+      border: 1px solid #2d2d2d;
+      padding: 24px;
+      margin-bottom: 22px;
+    }
+
+    .term-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .term-title {
+      font-size: 34px;
+      font-weight: bold;
+    }
+
+    .phonetic {
+      color: #888;
+      margin-top: 6px;
+    }
+
+    .meaning {
+      background: white;
+      color: black;
+      padding: 10px 16px;
+      border-radius: 14px;
+      font-weight: bold;
+    }
+
+    .example {
+      background: #101010;
+      border-left: 4px solid #666;
+      padding: 18px;
+      margin-top: 20px;
+      border-radius: 14px;
+      color: #ddd;
+      font-style: italic;
+    }
+
+    .explanation {
+      margin-top: 18px;
+      color: #bbb;
+    }
+
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    button {
+      background: #2a2a2a;
+      border: 1px solid #3a3a3a;
+      color: white;
+      padding: 12px 18px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background: #3a3a3a;
+    }
+
+    .case-box {
+      background: #1a1a1a;
+      border-radius: 22px;
+      padding: 24px;
+      border: 1px solid #2f2f2f;
+    }
+
+    .quote {
+      margin-top: 18px;
+      background: #101010;
+      padding: 20px;
+      border-left: 4px solid #666;
+      border-radius: 16px;
+      color: #ddd;
+      font-style: italic;
+    }
+
+    .review-word {
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: #1e1e1e;
+      border: 1px solid #333;
+      margin: 6px;
+      color: #ddd;
+    }
+
+    .level-card {
+      background: #1a1a1a;
+      border-radius: 18px;
+      border: 1px solid #2c2c2c;
+      padding: 18px;
+      margin-bottom: 14px;
+    }
+
+    .level-title {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .level-desc {
+      color: #999;
+      margin-top: 8px;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #777;
+    }
+
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 38px;
+      }
+
+      h2 {
+        font-size: 28px;
+      }
+
+      .term-title {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="hero">
+      <h1>Legal English Academy</h1>
+      <p class="subtitle">
+        法学院沉浸式法律英语学习系统。通过合同、判例、法条与学术论著学习真正的 Legal English。
+      </p>
+
+      <div class="stats">
+        <div class="stat-card">
+          <div class="stat-number">127</div>
+          <div class="stat-label">已学习术语</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-number">14</div>
+          <div class="stat-label">已精读判例</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-number">31</div>
+          <div class="stat-label">连续学习天数</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-number">2L</div>
+          <div class="stat-label">当前等级</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div>
+        <div class="card">
+          <h2>今日学习任务</h2>
+
+          <div class="task">
+            <div class="task-number">1</div>
+            <div>学习今日 20 个法律术语</div>
+          </div>
+
+          <div class="task">
+            <div class="task-number">2</div>
+            <div>完成 obligation 与 duty 的区别分析</div>
+          </div>
+
+          <div class="task">
+            <div class="task-number">3</div>
+            <div>精读经典判例 Carlill v Carbolic Smoke Ball Co.</div>
+          </div>
+
+          <div class="task">
+            <div class="task-number">4</div>
+            <div>翻译并仿写一个合同条款</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>今日法律术语</h2>
+
+          <div class="term-card">
+            <div class="term-top">
+              <div>
+                <div class="term-title">obligation</div>
+                <div class="phonetic">/ˌɑːblɪˈɡeɪʃən/</div>
+              </div>
+
+              <div class="meaning">法律义务</div>
+            </div>
+
+            <div class="example">
+              “The Buyer shall fulfill all payment obligations under this Agreement.”
+            </div>
+
+            <div class="explanation">
+              obligation 强调合同关系中的具体履行义务，通常出现在合同法与商法语境中。
+            </div>
+
+            <div class="button-group">
+              <button onclick="alert('已加入复习词库')">加入复习</button>
+              <button onclick="speakWord('obligation')">朗读发音</button>
+              <button onclick="alert('经典判例：Carlill v Carbolic Smoke Ball Co.')">查看判例</button>
+            </div>
+          </div>
+
+          <div class="term-card">
+            <div class="term-top">
+              <div>
+                <div class="term-title">duty</div>
+                <div class="phonetic">/ˈduːti/</div>
+              </div>
+
+              <div class="meaning">法律职责</div>
+            </div>
+
+            <div class="example">
+              “Manufacturers owe a duty of care to consumers.”
+            </div>
+
+            <div class="explanation">
+              duty 强调法律直接施加的行为标准，在侵权法中极为重要。
+            </div>
+
+            <div class="button-group">
+              <button onclick="alert('已加入复习词库')">加入复习</button>
+              <button onclick="speakWord('duty')">朗读发音</button>
+              <button onclick="alert('经典判例：Donoghue v Stevenson')">查看判例</button>
+            </div>
+          </div>
+
+          <div class="term-card">
+            <div class="term-top">
+              <div>
+                <div class="term-title">breach</div>
+                <div class="phonetic">/briːtʃ/</div>
+              </div>
+
+              <div class="meaning">违约；违反义务</div>
+            </div>
+
+            <div class="example">
+              “A material breach permits termination of the agreement.”
+            </div>
+
+            <div class="explanation">
+              breach 是合同法核心术语，经常与 damages、liability 连用。
+            </div>
+
+            <div class="button-group">
+              <button onclick="alert('已加入复习词库')">加入复习</button>
+              <button onclick="speakWord('breach')">朗读发音</button>
+              <button onclick="alert('经典判例：Hadley v Baxendale')">查看判例</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>今日经典判例</h2>
+
+          <div class="case-box">
+            <h3 style="font-size: 30px; margin-bottom: 8px;">
+              Carlill v Carbolic Smoke Ball Co.
+            </h3>
+
+            <div style="color:#999; margin-bottom: 16px;">
+              1893 · English Contract Law
+            </div>
+
+            <p>
+              法院认定广告可能构成 unilateral offer（单方要约）。
+              这是英美合同法最经典的判例之一。
+            </p>
+
+            <div class="quote">
+              “The advertisement constituted an offer to the world.”
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="card">
+          <h2>学习等级系统</h2>
+
+          <div class="level-card">
+            <div class="level-title">1L</div>
+            <div class="level-desc">基础法律英语词汇</div>
+          </div>
+
+          <div class="level-card">
+            <div class="level-title">2L</div>
+            <div class="level-desc">合同法与判例阅读</div>
+          </div>
+
+          <div class="level-card">
+            <div class="level-title">3L</div>
+            <div class="level-desc">法律写作与法律推理</div>
+          </div>
+
+          <div class="level-card">
+            <div class="level-title">LLM</div>
+            <div class="level-desc">学术论文与案例分析</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>复习词库</h2>
+
+          <div>
+            <span class="review-word">contract</span>
+            <span class="review-word">obligation</span>
+            <span class="review-word">duty</span>
+            <span class="review-word">breach</span>
+            <span class="review-word">damages</span>
+            <span class="review-word">liability</span>
+            <span class="review-word">consideration</span>
+            <span class="review-word">offer</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>学习建议</h2>
+
+          <p style="margin-bottom: 14px; color:#bbb;">
+            1. 每天朗读术语与音标。
+          </p>
+
+          <p style="margin-bottom: 14px; color:#bbb;">
+            2. 重点学习 legal context，而不仅是中文释义。
+          </p>
+
+          <p style="margin-bottom: 14px; color:#bbb;">
+            3. 每个词都结合判例与合同语境理解。
+          </p>
+
+          <p style="color:#bbb;">
+            4. 每周至少精读一个法院判决。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      Legal English Academy · Personal Law School System
+    </div>
+  </div>
+
+  <script>
+    function speakWord(word) {
+      const utterance = new SpeechSynthesisUtterance(word);
+      utterance.lang = 'en-US';
+      speechSynthesis.speak(utterance);
+    }
+  </script>
+</body>
+</html>
