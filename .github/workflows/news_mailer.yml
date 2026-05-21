@@ -1,0 +1,26 @@
+name: News Mailer
+
+on:
+  schedule:
+    - cron: '0 0 * * *'   # 08:00 Asia/Shanghai
+    - cron: '0 12 * * *'  # 20:00 Asia/Shanghai
+  workflow_dispatch:
+
+jobs:
+  send-news-email:
+    runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+      - name: Send template email
+        env:
+          SMTP_HOST: ${{ secrets.SMTP_HOST }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          TO_EMAIL: ${{ secrets.TO_EMAIL }}
+        run: python news_mailer.py
