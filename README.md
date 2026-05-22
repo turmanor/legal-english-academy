@@ -25,6 +25,13 @@ This repo sends a twice-daily analysis-style email brief with 6–8 items, balan
 - DNS lookup failed: runner/network cannot resolve `smtp.qq.com`.
 - Secret not configured: `SMTP_USER`, `SMTP_PASS`, or `TO_EMAIL` missing.
 
+
+## Troubleshooting checklist
+
+1. In **Actions logs**, verify `Check SMTP DNS` step passes.
+2. If DNS check fails, set `SMTP_HOST` explicitly to `smtp.qq.com` and retry; if still failing, it's runner/network-level DNS issue.
+3. If DNS passes but send fails with auth error, regenerate QQ SMTP authorization code and update `SMTP_PASS`.
+
 ## Local test
 
 ```bash

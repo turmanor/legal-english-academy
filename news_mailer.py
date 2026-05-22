@@ -10,6 +10,10 @@ from email.mime.text import MIMEText
 REQUIRED_ENV_VARS = ("SMTP_USER", "SMTP_PASS", "TO_EMAIL")
 
 
+def smtp_preflight_check(smtp_host: str, smtp_port: int, timeout: int = 10) -> None:
+    socket.create_connection((smtp_host, smtp_port), timeout=timeout).close()
+
+
 def build_html(now_bj: datetime) -> str:
     rows = [
         ("中国财经", "人民币汇率与跨境资本流动", "今日市场关注稳增长与流动性节奏，短端利率预期平稳。", "若后续政策进一步明朗，风险偏好可能提升。", "https://www.reuters.com/world/china/"),
@@ -83,6 +87,8 @@ def send_mail() -> None:
     msg["Subject"] = subject
 
     msg.attach(MIMEText(build_html(now_bj), "html", "utf-8"))
+
+    smtp_preflight_check(smtp_host, smtp_port)
 
     pdf_path = "daily_report_template.pdf"
     build_pdf_placeholder(pdf_path, now_bj)

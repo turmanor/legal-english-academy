@@ -16,6 +16,9 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.11'
+      - name: Check SMTP DNS
+        run: getent hosts "${{ secrets.SMTP_HOST || 'smtp.qq.com' }}"
+
       - name: Send template email
         env:
           SMTP_HOST: ${{ secrets.SMTP_HOST }}
